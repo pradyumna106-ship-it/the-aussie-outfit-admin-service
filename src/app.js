@@ -9,15 +9,13 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
   credentials: true}));
-app.options('/api', cors());
+app.options('', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // for form
 app.use("/uploads", express.static("uploads"));
-app.get('/', (req, res) => {
-  res.status(200).json({ message: "API Connected Successfully" })
-})
-app.use('/api/admin/coupon',couponRouter);
-app.use('/api/admin/banner',bannerRouter);
-app.use('/api/admin/reports/sales',reportRouter);
+
+app.use('/coupon',couponRouter);
+app.use('/banner',bannerRouter);
+app.use('/reports/sales',reportRouter);
 
 export default app;

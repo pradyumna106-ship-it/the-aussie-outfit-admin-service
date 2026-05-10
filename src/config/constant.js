@@ -1,1 +1,1 @@
-export const DB_NAME = "admin_service"
+export const DB_NAME = "admin-service"
